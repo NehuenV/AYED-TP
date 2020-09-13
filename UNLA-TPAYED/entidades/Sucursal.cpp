@@ -29,9 +29,11 @@ char * getProvincia(Sucursal &sucursal)
 {
     return sucursal.provincia;
 }
-void setProvincia(Sucursal &sucursal, char provincia[20])
+void setProvincia(Sucursal &sucursal, char * provincia)
 {
-   // sucursal.provincia = provincia;
+   for( int i=0;  i<20 ;i++){
+        sucursal.provincia[i]=provincia[i];
+    }
 }
 
 int getCantArticulo(Sucursal &sucursal, int cantArticulo)
@@ -56,6 +58,7 @@ int getCm2(Sucursal &sucursal)
 {
     return sucursal.cm2;
 }
+
 void setCm2(Sucursal &sucursal, int cm2)
 {
     sucursal.cm2 = cm2;

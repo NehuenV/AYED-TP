@@ -19,7 +19,7 @@ void setCodSucursal(Sucursal &sucursal, int codSucursal);
 
 //char
 char * getProvincia(Sucursal &sucursal);
-void setProvincia(Sucursal &sucursal, char provincia[20]);
+void setProvincia(Sucursal &sucursal, char * provincia);
 
 int getCantArticulo(Sucursal &sucursal, int cantArticulo);
 void setCantArtciulo(Sucursal &sucursal, int cantArticulo);
