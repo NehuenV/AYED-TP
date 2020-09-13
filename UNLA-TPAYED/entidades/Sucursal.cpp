@@ -5,8 +5,8 @@
 
 void crearSucursal(Sucursal &sucursal,int codSucursal,char provincia[20], int cantArticulo, float monto, int cm2,int casaMatriz ){
     sucursal.codSucursal = codSucursal;
-    sucursal.provincia = provincia;
-    sucursal.cantArticulo = cantArticulo:
+//    sucursal.provincia = provincia;
+    sucursal.cantArticulo = cantArticulo;
     sucursal.monto = monto;
     sucursal.cm2= cm2;
     sucursal.casaMatriz = casaMatriz;
@@ -31,7 +31,7 @@ char * getProvincia(Sucursal &sucursal)
 }
 void setProvincia(Sucursal &sucursal, char provincia[20])
 {
-    sucursal.provincia = provincia;
+   // sucursal.provincia = provincia;
 }
 
 int getCantArticulo(Sucursal &sucursal, int cantArticulo)
@@ -67,5 +67,5 @@ int getCasaMatriz(Sucursal &sucursal)
 }
 void setCasaMatriz(Sucursal &sucursal, int casaMatriz)
 {
-    sucursal.casaMatriz = CasaMatriz;
+    sucursal.casaMatriz = casaMatriz;
 }
