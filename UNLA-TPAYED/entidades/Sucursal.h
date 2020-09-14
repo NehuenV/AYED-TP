@@ -33,7 +33,8 @@ void setCm2(Sucursal &sucursal, int cm2);
 int getCasaMatriz(Sucursal &sucursal);
 void setCasaMatriz(Sucursal &sucursal, int casaMatriz);
 
+void cargarSucursal(Sucursal &sucursal);
 
-
+void leerLineaSucursal(char* destino, FILE* fSucursal);
 
 #endif // SUCURSAL_H_INCLUDED
