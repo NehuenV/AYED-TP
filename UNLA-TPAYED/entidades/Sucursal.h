@@ -1,6 +1,7 @@
 #ifndef SUCURSAL_H_INCLUDED
 #define SUCURSAL_H_INCLUDED
-
+#include <stdio.h>
+#include <stdlib.h>
 typedef struct {
     int codSucursal;
     char provincia[20];

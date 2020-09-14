@@ -83,12 +83,12 @@ void cargarSucursal(Sucursal &sucursal)
 {
     FILE* fSucursal;
     char lectura[80];
-    int i, j;
+    int i;
 
     fSucursal = fopen("archivo.txt","r");
     while(!feof(fSucursal))
     {
-        for (i=0;i<20;i++) lectura[i]=0;
+        for (i=0;i<80;i++) lectura[i]=0;
         leerLineaSucursal(lectura, fSucursal);
 
     }
