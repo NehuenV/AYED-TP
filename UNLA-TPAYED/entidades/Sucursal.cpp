@@ -1,6 +1,5 @@
 #include <iostream>
 #include <sstream>
-
 #include "Sucursal.h"
 
 void crearSucursal(Sucursal &sucursal,int codSucursal,char provincia[20], int cantArticulo, float monto, int cm2,int casaMatriz ){

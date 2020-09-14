@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="archivo/Archivo.cpp" />
+		<Unit filename="archivo/archivo.h" />
+		<Unit filename="entidades/Sucursal.cpp" />
+		<Unit filename="entidades/Sucursal.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
