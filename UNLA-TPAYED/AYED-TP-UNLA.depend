@@ -5,14 +5,15 @@
 
 1600058406 c:\users\nehuen\desktop\tpayedunla\ayed-tp-unla\entidades\sucursal.h
 
-1600122979 source:c:\users\nehuen\documents\ayed-tp\unla-tpayed\entidades\sucursal.cpp
+1600129157 source:c:\users\nehuen\documents\ayed-tp\unla-tpayed\entidades\sucursal.cpp
 	<iostream>
 	<sstream>
 	<stdio.h>
 	<string.h>
 	"Sucursal.h"
+	<stdlib.h>
 
-1600123266 c:\users\nehuen\documents\ayed-tp\unla-tpayed\entidades\sucursal.h
+1600129225 c:\users\nehuen\documents\ayed-tp\unla-tpayed\entidades\sucursal.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -20,7 +21,7 @@
 	<iostream>
 	"Entidades/Sucursal.h"
 
-1600123046 source:c:\users\nehuen\documents\ayed-tp\unla-tpayed\listas\lista.cpp
+1600124862 source:c:\users\nehuen\documents\ayed-tp\unla-tpayed\listas\lista.cpp
 	"Lista.h"
 
 1600123059 c:\users\nehuen\documents\ayed-tp\unla-tpayed\listas\lista.h

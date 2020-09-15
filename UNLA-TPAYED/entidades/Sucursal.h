@@ -9,32 +9,34 @@ typedef struct {
     float monto;
     int cm2;
     int casaMatriz;
-}Sucursal;
+}SucursalStruct;
 
-void crearSucursal(Sucursal &sucursal,int codSucursal,char provincia, int cantArticulo, float monto, int cm2,int casaMatriz );
+typedef SucursalStruct* Sucursal;
 
-void borrarSucursal(Sucursal &sucursal);
+void crearSucursal(Sucursal sucursal,int codSucursal,char provincia, int cantArticulo, float monto, int cm2,int casaMatriz );
 
-int getCodSucursal(Sucursal &sucursal);
-void setCodSucursal(Sucursal &sucursal, int codSucursal);
+void borrarSucursal(Sucursal sucursal);
+
+int getCodSucursal(Sucursal sucursal);
+void setCodSucursal(Sucursal sucursal, int codSucursal);
 
 //char
-char * getProvincia(Sucursal &sucursal);
-void setProvincia(Sucursal &sucursal, char * provincia);
+char * getProvincia(Sucursal sucursal);
+void setProvincia(Sucursal sucursal, char * provincia);
 
-int getCantArticulo(Sucursal &sucursal, int cantArticulo);
-void setCantArtciulo(Sucursal &sucursal, int cantArticulo);
+int getCantArticulo(Sucursal sucursal, int cantArticulo);
+void setCantArtciulo(Sucursal sucursal, int cantArticulo);
 
-float getMonto(Sucursal &sucursal);
-void setMonto(Sucursal &sucursal, float monto);
+float getMonto(Sucursal sucursal);
+void setMonto(Sucursal sucursal, float monto);
 
-int getCm2(Sucursal &sucursal);
-void setCm2(Sucursal &sucursal, int cm2);
+int getCm2(Sucursal sucursal);
+void setCm2(Sucursal sucursal, int cm2);
 
-int getCasaMatriz(Sucursal &sucursal);
-void setCasaMatriz(Sucursal &sucursal, int casaMatriz);
+int getCasaMatriz(Sucursal sucursal);
+void setCasaMatriz(Sucursal sucursal, int casaMatriz);
 
-void cargarSucursal(Sucursal &sucursal);
+void cargarSucursal(Sucursal sucursal);
 
 void leerLineaSucursal(char* destino, FILE* fSucursal);
 

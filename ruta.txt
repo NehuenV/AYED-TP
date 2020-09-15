@@ -1,0 +1,23 @@
+main{
+
+Sucursal s//puntero 
+cargarsucural->
+crearSucural(s,parametros)
+
+agregarLista
+
+}
+
+crear el puntero sucursal
+abrir el archivo
+while
+leer linea
+crear sucursal
+{
+splitear
+llenar sucursales
+}quiza es una sola funcion
+agregar a la lista(lista creada en el main y se pasa como parametro)[lo recibe cargar sucursales(todas) o donde sea que vaya a completar la sucursal]
+
+
+
