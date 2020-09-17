@@ -1,10 +1,12 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
 #include "Entidades/Sucursal.h"
 using namespace std;
 
 int main()
 {
-//     Sucursal* suc[25];
-    cout << "Hello world!" << endl;
+    cout<< "leyendo archivo"<<endl;
+
     return 0;
 }

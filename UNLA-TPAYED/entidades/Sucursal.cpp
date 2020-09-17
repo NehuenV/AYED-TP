@@ -7,8 +7,14 @@
 using namespace std;
 
 
-void crearSucursal(Sucursal *sucursal){
+void crearSucursal(Sucursal *sucursal ,int codSucursal,string provincia, int cantArticulo, float monto, float cm2,int casaMatriz ){
     sucursal = new Sucursal;
+    sucursal->codSucursal = codSucursal;
+    sucursal->provincia = provincia;
+    sucursal->cantArticulo= cantArticulo;
+    sucursal->monto = monto;
+    sucursal->cm2 = cm2;
+    sucursal->casaMatriz = casaMatriz;
 }
 
 void borrarSucursal(Sucursal *sucursal)
@@ -52,12 +58,12 @@ void setMonto(Sucursal *sucursal, float monto)
     sucursal->monto = monto;
 }
 
-int getCm2(Sucursal *sucursal)
+float getCm2(Sucursal *sucursal)
 {
     return sucursal->cm2;
 }
 
-void setCm2(Sucursal *sucursal, int cm2)
+void setCm2(Sucursal *sucursal, float cm2)
 {
     sucursal->cm2 = cm2;
 }
@@ -71,7 +77,7 @@ void setCasaMatriz(Sucursal *sucursal, int casaMatriz)
     sucursal->casaMatriz = casaMatriz;
 }
 
-void cargarSucursal(Sucursal *sucursal)
+void cargarSucursal()
 {
     FILE* fSucursal;
     string lectura="";
@@ -84,7 +90,7 @@ void cargarSucursal(Sucursal *sucursal)
        //se obtiene el largo de la linea
         int largo = lectura.size();
         //encontramos el primer guion
-        pos = lectura.find('-')-1;
+        pos = lectura.find('-');
         //cortamos y casteamos desde el inicio de la linea hasta el guion
         int idSuc = atoi(lectura.substr(0,pos).c_str());
         //conservamos el resto de la linea a partir del primer guion hasta el final
@@ -93,23 +99,31 @@ void cargarSucursal(Sucursal *sucursal)
         /*se repite el proceso anterior
             recorte de provincia
         */
-        pos = lectura.find('-')-1;
+        pos = lectura.find('-');
         string prov = lectura.substr(0,pos);
         lectura= lectura.substr(pos+1,largo).c_str();
 
         /*recorte de cant articulo*/
-         pos = lectura.find('-')-1;
+         pos = lectura.find('-');
          int cant = atoi(lectura.substr(0,pos).c_str());
          lectura= lectura.substr(pos+1,largo).c_str();
 
          /*recorte de monto*/
-         pos = lectura.find('-')-1;
-         int mont = atof(lectura.substr(0,pos).c_str());
+         pos = lectura.find('-');
+         float mont = atof(lectura.substr(0,pos).c_str());
          lectura= lectura.substr(pos+1,largo).c_str();
 
+         /*centimetros cuadrados*/
+         pos = lectura.find('-');
+         float cm = atof(lectura.substr(0,pos).c_str());
+         lectura= lectura.substr(pos+1,largo).c_str();
 
-       // while(x<lectura.)
-        //splitear linea
+         /*casa matriz*/
+         pos = lectura.find('-');
+         int casa = atoi(lectura.substr(0,pos).c_str());
+         lectura= lectura.substr(pos+1,largo).c_str();
+         Sucursal* sucursal = new Sucursal;
+         crearSucursal(sucursal,idSuc,prov,cant,mont,cm,casa);
     }
     fclose(fSucursal);
 }

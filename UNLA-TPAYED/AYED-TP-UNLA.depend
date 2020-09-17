@@ -51,3 +51,28 @@
 	"Sucursal.h"
 	<stdlib.h>
 
+1600364465 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\entidades\sucursal.cpp
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<string>
+	"Sucursal.h"
+	<stdlib.h>
+
+1600356560 c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\entidades\sucursal.h
+	<stdio.h>
+	<stdlib.h>
+	<string>
+
+1600353051 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\lista.cpp
+	"Lista.h"
+
+1600353051 c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\lista.h
+	"..\Entidades\Sucursal.h"
+
+1600364326 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"Entidades/Sucursal.h"
+

@@ -8,7 +8,7 @@ typedef struct {
     std::string provincia;
     int cantArticulo;
     float monto;
-    int cm2;
+    float cm2;
     int casaMatriz;
 }Sucursal;
 
@@ -30,8 +30,8 @@ void setCantArtciulo(Sucursal *sucursal, int cantArticulo);
 float getMonto(Sucursal *sucursal);
 void setMonto(Sucursal *sucursal, float monto);
 
-int getCm2(Sucursal *sucursal);
-void setCm2(Sucursal *sucursal, int cm2);
+float getCm2(Sucursal *sucursal);
+void setCm2(Sucursal *sucursal, float cm2);
 
 int getCasaMatriz(Sucursal *sucursal);
 void setCasaMatriz(Sucursal *sucursal, int casaMatriz);
