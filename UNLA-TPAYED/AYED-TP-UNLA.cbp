@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Entidades/Sucursal.cpp" />
 		<Unit filename="Entidades/Sucursal.h" />
+		<Unit filename="Listas/Lista.cpp" />
+		<Unit filename="Listas/Lista.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

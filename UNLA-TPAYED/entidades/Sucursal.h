@@ -2,6 +2,7 @@
 #define SUCURSAL_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
 typedef struct {
     int codSucursal;
     char provincia[20];
@@ -38,6 +39,6 @@ void setCasaMatriz(Sucursal sucursal, int casaMatriz);
 
 void cargarSucursal(Sucursal sucursal);
 
-void leerLineaSucursal(char* destino, FILE* fSucursal);
+void leerLineaSucursal(std::string *destino, FILE* fSucursal);
 
 #endif // SUCURSAL_H_INCLUDED

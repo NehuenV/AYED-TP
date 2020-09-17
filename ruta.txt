@@ -1,13 +1,3 @@
-main{
-
-Sucursal s//puntero 
-cargarsucural->
-crearSucural(s,parametros)
-
-agregarLista
-
-}
-
 crear el puntero sucursal
 abrir el archivo
 while

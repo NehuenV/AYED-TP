@@ -4,7 +4,7 @@
 #include <string.h>
 #include "Sucursal.h"
 #include <stdlib.h>
-
+using namespace std;
 
 
 void crearSucursal(Sucursal sucursal){
@@ -76,29 +76,35 @@ void setCasaMatriz(Sucursal sucursal, int casaMatriz)
 void cargarSucursal(Sucursal &sucursal)
 {
     FILE* fSucursal;
-    char lectura[80];
-    int i;
-
+    string lectura="";
+    int pos=0;
     fSucursal = fopen("archivo.txt","r");
     while(!feof(fSucursal))
     {
-        for (i=0;i<80;i++) lectura[i]=0;
-        leerLineaSucursal(lectura, fSucursal);
+       // for (i=0;i<80;i++) lectura[i]=0;
+        leerLineaSucursal(&lectura, fSucursal);
+        pos = lectura.find('-')-1;
+        int largo = lectura.size();
+        int idSuc = atoi(lectura.substr(0,pos).c_str());
+        lectura= lectura.substr(pos+1,largo).c_str();
+       // while(x<lectura.)
         //splitear linea
     }
     fclose(fSucursal);
 }
 
-void leerLineaSucursal(char* destino, FILE* fSucursal)
+void leerLineaSucursal(string *destino, FILE* fSucursal)
 {
-    char buffer;
+    char buffer=0;
     int i;
-
     i=0;
-    buffer=0;
     while (buffer!=10 && fread(&buffer,1,1,fSucursal)==1)
     {
-        if(buffer!=10) destino[i] = buffer;
+        if(buffer!=10)
+        {
+            destino += buffer;
+
+        }
         i++;
     }
 }
