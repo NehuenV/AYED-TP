@@ -5,39 +5,38 @@
 #include <string>
 typedef struct {
     int codSucursal;
-    char provincia[20];
+    std::string provincia;
     int cantArticulo;
     float monto;
     int cm2;
     int casaMatriz;
-}SucursalStruct;
+}Sucursal;
 
-typedef SucursalStruct* Sucursal;
 
-void crearSucursal(Sucursal sucursal,int codSucursal,char provincia, int cantArticulo, float monto, int cm2,int casaMatriz );
+void crearSucursal(Sucursal *sucursal,int codSucursal,char provincia, int cantArticulo, float monto, int cm2,int casaMatriz );
 
-void borrarSucursal(Sucursal sucursal);
+void borrarSucursal(Sucursal *sucursal);
 
-int getCodSucursal(Sucursal sucursal);
-void setCodSucursal(Sucursal sucursal, int codSucursal);
+int getCodSucursal(Sucursal *sucursal);
+void setCodSucursal(Sucursal *sucursal, int codSucursal);
 
 //char
-char * getProvincia(Sucursal sucursal);
-void setProvincia(Sucursal sucursal, char * provincia);
+std::string getProvincia(Sucursal *sucursal);
+void setProvincia(Sucursal *sucursal, std::string provincia);
 
-int getCantArticulo(Sucursal sucursal, int cantArticulo);
-void setCantArtciulo(Sucursal sucursal, int cantArticulo);
+int getCantArticulo(Sucursal *sucursal, int cantArticulo);
+void setCantArtciulo(Sucursal *sucursal, int cantArticulo);
 
-float getMonto(Sucursal sucursal);
-void setMonto(Sucursal sucursal, float monto);
+float getMonto(Sucursal *sucursal);
+void setMonto(Sucursal *sucursal, float monto);
 
-int getCm2(Sucursal sucursal);
-void setCm2(Sucursal sucursal, int cm2);
+int getCm2(Sucursal *sucursal);
+void setCm2(Sucursal *sucursal, int cm2);
 
-int getCasaMatriz(Sucursal sucursal);
-void setCasaMatriz(Sucursal sucursal, int casaMatriz);
+int getCasaMatriz(Sucursal *sucursal);
+void setCasaMatriz(Sucursal *sucursal, int casaMatriz);
 
-void cargarSucursal(Sucursal sucursal);
+void cargarSucursal(Sucursal *sucursal);
 
 void leerLineaSucursal(std::string *destino, FILE* fSucursal);
 

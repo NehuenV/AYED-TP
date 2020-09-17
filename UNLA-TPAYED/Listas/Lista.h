@@ -5,7 +5,7 @@
  */
 #ifndef __LISTA_H__INCLUDED
 #define __LISTA_H__INCLUDED
-#include "C:\Users\Nehuen\Documents\AYED-TP\UNLA-TPAYED\Entidades\Sucursal.h"
+#include "..\Entidades\Sucursal.h"
 
 #ifndef NULL
 #define NULL      0

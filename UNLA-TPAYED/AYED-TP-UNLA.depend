@@ -28,3 +28,26 @@
 1600123059 c:\users\nehuen\documents\ayed-tp\unla-tpayed\listas\lista.h
 	"C:\Users\Nehuen\Documents\AYED-TP\UNLA-TPAYED\Entidades\Sucursal.h"
 
+1600303209 source:c:\users\equipo\desktop\ayed-tp\unla-tpayed\listas\lista.cpp
+	"Lista.h"
+
+1600303209 c:\users\equipo\desktop\ayed-tp\unla-tpayed\listas\lista.h
+	"C:\Users\Nehuen\Documents\AYED-TP\UNLA-TPAYED\Entidades\Sucursal.h"
+
+1600303209 source:c:\users\equipo\desktop\ayed-tp\unla-tpayed\main.cpp
+	<iostream>
+	"Entidades/Sucursal.h"
+
+1600306057 c:\users\equipo\desktop\ayed-tp\unla-tpayed\entidades\sucursal.h
+	<stdio.h>
+	<stdlib.h>
+	<string>
+
+1600306207 source:c:\users\equipo\desktop\ayed-tp\unla-tpayed\entidades\sucursal.cpp
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<string>
+	"Sucursal.h"
+	<stdlib.h>
+

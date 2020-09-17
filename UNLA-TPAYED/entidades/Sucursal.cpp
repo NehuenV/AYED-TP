@@ -1,79 +1,77 @@
 #include <iostream>
 #include <sstream>
 #include <stdio.h>
-#include <string.h>
+#include <string>
 #include "Sucursal.h"
 #include <stdlib.h>
 using namespace std;
 
 
-void crearSucursal(Sucursal sucursal){
-    sucursal = new SucursalStruct;
+void crearSucursal(Sucursal *sucursal){
+    sucursal = new Sucursal;
 }
 
-void borrarSucursal(Sucursal sucursal)
+void borrarSucursal(Sucursal *sucursal)
 {
     delete sucursal;
 }
 
-int getCodSucursal(Sucursal sucursal){
+int getCodSucursal(Sucursal *sucursal){
     return sucursal->codSucursal;
 }
-void setCodSucursal(Sucursal sucursal, int codSucursal){
+void setCodSucursal(Sucursal *sucursal, int codSucursal){
     sucursal->codSucursal = codSucursal;
 }
 
 //char
 
-char * getProvincia(Sucursal sucursal)
+string getProvincia(Sucursal *sucursal)
 {
     return sucursal->provincia;
 }
-void setProvincia(Sucursal sucursal, char * provincia)
+void setProvincia(Sucursal *sucursal, string provincia)
 {
-   for( int i=0;  i<20 ;i++){
-        sucursal->provincia[i]=provincia[i];
-    }
+   sucursal->provincia = provincia;
 }
 
-int getCantArticulo(Sucursal sucursal, int cantArticulo)
+int getCantArticulo(Sucursal *sucursal, int cantArticulo)
 {
     return sucursal->cantArticulo;
 }
-void setCantArtciulo(Sucursal sucursal, int cantArticulo)
+void setCantArtciulo(Sucursal *sucursal, int cantArticulo)
 {
     sucursal->cantArticulo = cantArticulo;
 }
 
-float getMonto(Sucursal sucursal)
+float getMonto(Sucursal *sucursal)
 {
     return sucursal->monto;
 }
-void setMonto(Sucursal sucursal, float monto)
+void setMonto(Sucursal *sucursal, float monto)
 {
     sucursal->monto = monto;
 }
 
-int getCm2(Sucursal sucursal)
+int getCm2(Sucursal *sucursal)
 {
     return sucursal->cm2;
 }
 
-void setCm2(Sucursal sucursal, int cm2)
+void setCm2(Sucursal *sucursal, int cm2)
 {
     sucursal->cm2 = cm2;
 }
 
-int getCasaMatriz(Sucursal sucursal)
+int getCasaMatriz(Sucursal *sucursal)
 {
     return sucursal->casaMatriz;
 }
-void setCasaMatriz(Sucursal sucursal, int casaMatriz)
+void setCasaMatriz(Sucursal *sucursal, int casaMatriz)
 {
     sucursal->casaMatriz = casaMatriz;
 }
 
-void cargarSucursal(Sucursal &sucursal)
+void cargarSucursal(Sucursal *sucursal)
 {
     FILE* fSucursal;
     string lectura="";
@@ -81,12 +79,35 @@ void cargarSucursal(Sucursal &sucursal)
     fSucursal = fopen("archivo.txt","r");
     while(!feof(fSucursal))
     {
-       // for (i=0;i<80;i++) lectura[i]=0;
+        //leemos la linea
         leerLineaSucursal(&lectura, fSucursal);
-        pos = lectura.find('-')-1;
+       //se obtiene el largo de la linea
         int largo = lectura.size();
+        //encontramos el primer guion
+        pos = lectura.find('-')-1;
+        //cortamos y casteamos desde el inicio de la linea hasta el guion
         int idSuc = atoi(lectura.substr(0,pos).c_str());
+        //conservamos el resto de la linea a partir del primer guion hasta el final
         lectura= lectura.substr(pos+1,largo).c_str();
+
+        /*se repite el proceso anterior
+            recorte de provincia
+        */
+        pos = lectura.find('-')-1;
+        string prov = lectura.substr(0,pos);
+        lectura= lectura.substr(pos+1,largo).c_str();
+
+        /*recorte de cant articulo*/
+         pos = lectura.find('-')-1;
+         int cant = atoi(lectura.substr(0,pos).c_str());
+         lectura= lectura.substr(pos+1,largo).c_str();
+
+         /*recorte de monto*/
+         pos = lectura.find('-')-1;
+         int mont = atof(lectura.substr(0,pos).c_str());
+         lectura= lectura.substr(pos+1,largo).c_str();
+
+
        // while(x<lectura.)
         //splitear linea
     }
