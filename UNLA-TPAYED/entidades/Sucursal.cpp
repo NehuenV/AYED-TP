@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string>
 #include "Sucursal.h"
+#include "../Listas/Lista.h"
 #include <stdlib.h>
 using namespace std;
 
@@ -77,7 +78,7 @@ void setCasaMatriz(Sucursal *sucursal, int casaMatriz)
     sucursal->casaMatriz = casaMatriz;
 }
 
-void cargarSucursal()
+void cargarSucursal(Lista &lista)
 {
     FILE* fSucursal;
     string lectura="";
@@ -122,8 +123,10 @@ void cargarSucursal()
          pos = lectura.find('-');
          int casa = atoi(lectura.substr(0,pos).c_str());
          lectura= lectura.substr(pos+1,largo).c_str();
-         Sucursal* sucursal = new Sucursal;
+         Sucursal* sucursal ;
          crearSucursal(sucursal,idSuc,prov,cant,mont,cm,casa);
+         adicionarPrincipio(lista,sucursal);
+
     }
     fclose(fSucursal);
 }

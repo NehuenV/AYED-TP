@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include "../Listas/Lista.h"
 typedef struct {
     int codSucursal;
     std::string provincia;
@@ -36,7 +37,7 @@ void setCm2(Sucursal *sucursal, float cm2);
 int getCasaMatriz(Sucursal *sucursal);
 void setCasaMatriz(Sucursal *sucursal, int casaMatriz);
 
-void cargarSucursal(Sucursal *sucursal);
+void cargarSucursal(Lista &lista);
 
 void leerLineaSucursal(std::string *destino, FILE* fSucursal);
 

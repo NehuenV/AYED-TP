@@ -10,4 +10,36 @@ llenar sucursales
 agregar a la lista(lista creada en el main y se pasa como parametro)[lo recibe cargar sucursales(todas) o donde sea que vaya a completar la sucursal]
 
 
+//puto los que no estuvieron en discord el 17/09
+
+
+
+
+●	Un listado con el orden de las sucursales que más facturaron a nivel nacional 
+crear una lista y comparar por "Monto" y añadirlo a una nueva lista(definida en el main y se pasa por parametro[probablemente])
+
+
+●Un listado con el orden de las sucursales que más facturaron en cada provincia, (incluir los totales por provincia). 
+vamos a crear un txt con todas las provincias, leerlo y splitearlo para meterlo en una lista(cuando se saquen de la lista hay que castear a "string") y en un while comparar la lista principal.provincia contra la primer provincia de la listaProv.
+Se van a instanciar 23 listas en el main, una por cada provincia, a cada una hay que setear el metodo compararPorMonto.
+ordenar cada lista por monto
+
+
+
+●	Un ranking con las sucursales que mayor cantidad de artículos vendieron a nivel nacional 
+	crear una lista y comparar por cantidad de articulos y añadirlo a una lista nueva(definida en el main)
+
+●	Un ranking con las sucursales que mayor cantidad de artículos vendieron a nivel provincial
+	se aplica la del txt anterior, tomamos la lista de provincias y comparamos para armar X cantidad nueva de listas 
+	instanciamos las listas de provincias y comparamos en el while para armar las listas nuevas.
+	ordenar cada lista por cantidad de articulos.
+
+
+
+●	Un ranking de rendimiento donde se busca las sucursales que mejor rendimiento por metro cuadrado tienen, ordenando por el cociente de facturación/metros cuadrados del local.
+	comparamos por el mayor resultado de la division de facturacionxMetroCuadrado.
+	en el metodo CompararXMt2 vamos a dividir facturacionxMetroCuadrado y si es mayor va primero en la lista, sino por debajo.
+	La lista estara iniciada en el main 
+
+
 
