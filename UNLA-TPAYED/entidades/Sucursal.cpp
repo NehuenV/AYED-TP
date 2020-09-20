@@ -8,14 +8,13 @@
 using namespace std;
 
 
-void crearSucursal(Sucursal *sucursal ,int codSucursal,string provincia, int cantArticulo, float monto, float cm2,int casaMatriz ){
-    sucursal = new Sucursal;
-    sucursal->codSucursal = codSucursal;
-    sucursal->provincia = provincia;
-    sucursal->cantArticulo= cantArticulo;
-    sucursal->monto = monto;
-    sucursal->cm2 = cm2;
-    sucursal->casaMatriz = casaMatriz;
+void crearSucursal(Sucursal &sucursal ,int codSucursal,string provincia, int cantArticulo, float monto, float cm2,int casaMatriz ){
+    sucursal.codSucursal = codSucursal;
+    sucursal.provincia = provincia;
+    sucursal.cantArticulo= cantArticulo;
+    sucursal.monto = monto;
+    sucursal.cm2 = cm2;
+    sucursal.casaMatriz = casaMatriz;
 }
 
 void borrarSucursal(Sucursal *sucursal)
@@ -23,59 +22,59 @@ void borrarSucursal(Sucursal *sucursal)
     delete sucursal;
 }
 
-int getCodSucursal(Sucursal *sucursal){
-    return sucursal->codSucursal;
+int getCodSucursal(Sucursal &sucursal){
+    return sucursal.codSucursal;
 }
-void setCodSucursal(Sucursal *sucursal, int codSucursal){
-    sucursal->codSucursal = codSucursal;
+void setCodSucursal(Sucursal &sucursal, int codSucursal){
+    sucursal.codSucursal = codSucursal;
 }
 
 //char
 
-string getProvincia(Sucursal *sucursal)
+string getProvincia(Sucursal &sucursal)
 {
-    return sucursal->provincia;
+    return sucursal.provincia;
 }
-void setProvincia(Sucursal *sucursal, string provincia)
+void setProvincia(Sucursal &sucursal, string provincia)
 {
-   sucursal->provincia = provincia;
-}
-
-int getCantArticulo(Sucursal *sucursal, int cantArticulo)
-{
-    return sucursal->cantArticulo;
-}
-void setCantArtciulo(Sucursal *sucursal, int cantArticulo)
-{
-    sucursal->cantArticulo = cantArticulo;
+   sucursal.provincia = provincia;
 }
 
-float getMonto(Sucursal *sucursal)
+int getCantArticulo(Sucursal &sucursal)
 {
-    return sucursal->monto;
+    return sucursal.cantArticulo;
 }
-void setMonto(Sucursal *sucursal, float monto)
+void setCantArtciulo(Sucursal &sucursal, int cantArticulo)
 {
-    sucursal->monto = monto;
-}
-
-float getCm2(Sucursal *sucursal)
-{
-    return sucursal->cm2;
+    sucursal.cantArticulo = cantArticulo;
 }
 
-void setCm2(Sucursal *sucursal, float cm2)
+float getMonto(Sucursal &sucursal)
 {
-    sucursal->cm2 = cm2;
+    return sucursal.monto;
+}
+void setMonto(Sucursal &sucursal, float monto)
+{
+    sucursal.monto = monto;
 }
 
-int getCasaMatriz(Sucursal *sucursal)
+float getCm2(Sucursal &sucursal)
 {
-    return sucursal->casaMatriz;
+    return sucursal.cm2;
 }
-void setCasaMatriz(Sucursal *sucursal, int casaMatriz)
+
+void setCm2(Sucursal &sucursal, float cm2)
 {
-    sucursal->casaMatriz = casaMatriz;
+    sucursal.cm2 = cm2;
+}
+
+int getCasaMatriz(Sucursal &sucursal)
+{
+    return sucursal.casaMatriz;
+}
+void setCasaMatriz(Sucursal &sucursal, int casaMatriz)
+{
+    sucursal.casaMatriz = casaMatriz;
 }
 
 void cargarSucursal(Lista &lista)
@@ -83,11 +82,12 @@ void cargarSucursal(Lista &lista)
     FILE* fSucursal;
     string lectura="";
     int pos=0;
-    fSucursal = fopen("archivo.txt","r");
+    fSucursal = fopen("C:\\Users\\Equipo\\Documents\\AYED-TP\\archivo.txt","r");
     while(!feof(fSucursal))
     {
         //leemos la linea
         leerLineaSucursal(&lectura, fSucursal);
+      //  cout<< lectura<< endl;
        //se obtiene el largo de la linea
         int largo = lectura.size();
         //encontramos el primer guion
@@ -105,27 +105,32 @@ void cargarSucursal(Lista &lista)
         lectura= lectura.substr(pos+1,largo).c_str();
 
         /*recorte de cant articulo*/
-         pos = lectura.find('-');
-         int cant = atoi(lectura.substr(0,pos).c_str());
-         lectura= lectura.substr(pos+1,largo).c_str();
+        pos = lectura.find('-');
+        int cant = atoi(lectura.substr(0,pos).c_str());
+        lectura= lectura.substr(pos+1,largo).c_str();
 
          /*recorte de monto*/
-         pos = lectura.find('-');
-         float mont = atof(lectura.substr(0,pos).c_str());
-         lectura= lectura.substr(pos+1,largo).c_str();
+        pos = lectura.find('-');
+        float mont = atof(lectura.substr(0,pos).c_str());
+        lectura= lectura.substr(pos+1,largo).c_str();
 
-         /*centimetros cuadrados*/
-         pos = lectura.find('-');
-         float cm = atof(lectura.substr(0,pos).c_str());
-         lectura= lectura.substr(pos+1,largo).c_str();
+        /*centimetros cuadrados*/
+        pos = lectura.find('-');
+        float cm = atof(lectura.substr(0,pos).c_str());
+        lectura= lectura.substr(pos+1,largo).c_str();
 
-         /*casa matriz*/
-         pos = lectura.find('-');
-         int casa = atoi(lectura.substr(0,pos).c_str());
-         lectura= lectura.substr(pos+1,largo).c_str();
-         Sucursal* sucursal ;
-         crearSucursal(sucursal,idSuc,prov,cant,mont,cm,casa);
-         adicionarPrincipio(lista,sucursal);
+        /*casa matriz*/
+        pos = lectura.find('-');
+        int casa = atoi(lectura.substr(0,pos).c_str());
+        lectura= lectura.substr(pos+1,largo).c_str();
+
+      //  cout<< idSuc<<  prov<<  cant<<  mont<< cm<< casa<<endl;
+
+
+        Sucursal *sucursal = new Sucursal;
+        crearSucursal(*sucursal,idSuc,prov,cant,mont,cm,casa);
+       // cout <<toString(*sucursal)<<endl;
+        adicionarPrincipio(lista,sucursal);
 
     }
     fclose(fSucursal);
@@ -140,9 +145,21 @@ void leerLineaSucursal(string *destino, FILE* fSucursal)
     {
         if(buffer!=10)
         {
-            destino += buffer;
+           // cout<< buffer<< endl;
+            *destino += buffer;
 
         }
         i++;
     }
+}
+
+string toString(Sucursal &sucursal) {
+    string dato="NULL\n";
+       dato = "IdSuc: "+  std::to_string(getCodSucursal(sucursal)) +
+               " Provincia: " +// getProvincia(sucursal)+
+               " CantArticulo: "+ std::to_string(getCantArticulo(sucursal))+
+               " Monto: "+ std::to_string(getMonto(sucursal))+
+               " Cm2: "+ std::to_string(getCm2(sucursal))+
+                " CasaMatriz: " + std::to_string(getCasaMatriz(sucursal));
+    return dato;
 }

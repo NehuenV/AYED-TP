@@ -82,3 +82,33 @@
 
 1600382642 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\comparacion.cpp
 
+1600644047 source:c:\users\equipo\documents\ayed-tp\unla-tpayed\entidades\sucursal.cpp
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<string>
+	"Sucursal.h"
+	"../Listas/Lista.h"
+	<stdlib.h>
+
+1600641025 c:\users\equipo\documents\ayed-tp\unla-tpayed\entidades\sucursal.h
+	<stdio.h>
+	<stdlib.h>
+	<string>
+	"../Listas/Lista.h"
+
+1600643932 c:\users\equipo\documents\ayed-tp\unla-tpayed\listas\lista.h
+
+1600645476 source:c:\users\equipo\documents\ayed-tp\unla-tpayed\listas\lista.cpp
+	"Lista.h"
+	<iostream>
+	<iomanip>
+	"../Entidades/Sucursal.h"
+
+1600643905 source:c:\users\equipo\documents\ayed-tp\unla-tpayed\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"Entidades/Sucursal.h"
+	"Listas/Lista.h"
+

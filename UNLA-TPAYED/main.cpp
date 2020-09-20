@@ -6,11 +6,12 @@
 using namespace std;
 
 ResultadoComparacion compararMonto(PtrDato ptrDato1, PtrDato ptrDato2) {
-//hacer un metodo como la gente y no un hardcodeo
-
- if (getMonto(*(Sucursal*)ptrDato1) < getMonto(*(Sucursal*)ptrDato2))
+    if (getMonto(*(Sucursal*)ptrDato1) < getMonto(*(Sucursal*)ptrDato2))
         return MAYOR;
-
+    else if (getMonto(*(Sucursal*)ptrDato1) > getMonto(*(Sucursal*)ptrDato2))
+        return MENOR;
+    else
+        return IGUAL;
 }
 
 int main()
@@ -19,8 +20,10 @@ int main()
     Lista lista;
     crearLista(lista,compararMonto);
     cargarSucursal( lista);
-
     reordenar(lista);
+    ImprimirLista(lista);
+    eliminarListaSucursal(lista);
+
 
     return 0;
 }

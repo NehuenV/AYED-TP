@@ -218,7 +218,7 @@ void eliminarNodoUltimo(Lista &lista);
 
   lista : lista sobre la cual se invoca la primitiva.
 */
-void eliminarLista(Lista &lista);
+void eliminarListaSucursal(Lista &lista);
 
 
 /******************************************************************************/
@@ -277,5 +277,6 @@ void reordenar(Lista &lista);
 */
 int longitud(Lista &lista);
 
+void ImprimirLista(Lista &lista);
 #endif
 

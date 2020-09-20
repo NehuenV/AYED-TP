@@ -34,13 +34,14 @@
 		</Compiler>
 		<Unit filename="Entidades/Sucursal.cpp" />
 		<Unit filename="Entidades/Sucursal.h" />
-		<Unit filename="Listas/Comparacion.cpp" />
-		<Unit filename="Listas/Comparacion.h" />
 		<Unit filename="Listas/Lista.cpp" />
 		<Unit filename="Listas/Lista.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

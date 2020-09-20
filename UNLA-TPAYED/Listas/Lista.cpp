@@ -6,7 +6,9 @@
 
 
 #include "Lista.h"
-
+#include <iostream>
+#include <iomanip>
+#include "../Entidades/Sucursal.h"
 /******************************************************************************/
 /* Definición de Tipos de Datos para manejo interno */
 /*--------------------------------------------------*/
@@ -170,11 +172,14 @@ void eliminarNodoUltimo(Lista &lista) {
 }
 
 /*----------------------------------------------------------------------------*/
-void eliminarLista(Lista &lista) {
+void eliminarListaSucursal(Lista &lista) {
 
   /* retira uno a uno los nodos de la lista */
-  while (! listaVacia(lista))
-    eliminarNodo(lista,primero(lista));
+    while (! listaVacia(lista)){
+        borrarSucursal((Sucursal*)primero(lista)->ptrDato);
+        eliminarNodo(lista,primero(lista));
+
+    }
 }
 
 /*----------------------------------------------------------------------------*/
@@ -250,9 +255,21 @@ void reordenar(Lista &lista) {
         eliminarNodo( temp, ptrCursor );
         ptrCursor = primero(temp);
   }
-  eliminarLista( temp );
+  eliminarListaSucursal( temp );
 }
+/*----------------------------------------------------------------------------*/
 
+void ImprimirLista(Lista &lista) {
+
+
+  PtrNodoLista ptrCursor = primero(lista);
+  while ( ptrCursor != fin() ) {
+       std::cout<< toString(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+       ptrCursor=ptrCursor->sgte;
+
+  }
+
+}
 
 /*----------------------------------------------------------------------------*/
 
