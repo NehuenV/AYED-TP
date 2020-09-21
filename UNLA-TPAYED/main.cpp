@@ -6,6 +6,14 @@
 #include "Listas/Lista.h"
 using namespace std;
 
+ResultadoComparacion compararArticulo(PtrDato ptrDato1, PtrDato ptrDato2) {
+    if (getCantArticulo(*(Sucursal*)ptrDato1) >getCantArticulo(*(Sucursal*)ptrDato2))
+        return MAYOR;
+    else if (getCantArticulo(*(Sucursal*)ptrDato1) < getCantArticulo(*(Sucursal*)ptrDato2))
+        return MENOR;
+    else
+        return IGUAL;
+}
 ResultadoComparacion compararMonto(PtrDato ptrDato1, PtrDato ptrDato2) {
     if (getMonto(*(Sucursal*)ptrDato1) >getMonto(*(Sucursal*)ptrDato2))
         return MAYOR;
@@ -25,9 +33,21 @@ ResultadoComparacion compararMontoProv(PtrDato ptrDato1, PtrDato ptrDato2) {
     }
     else
         compararMonto(ptrDato1,ptrDato2);
-
-
 }
+
+ResultadoComparacion compararArticuloProv(PtrDato ptrDato1, PtrDato ptrDato2) {
+    if (getProvincia(*(Sucursal*)ptrDato1)==getProvincia(*(Sucursal*)ptrDato2))
+    {
+        return MAYOR;
+    }else
+    if (getProvincia(*(Sucursal*)ptrDato1)!=getProvincia(*(Sucursal*)ptrDato2))
+    {
+        return MENOR;
+    }
+    else
+        compararArticulo(ptrDato1,ptrDato2);
+}
+
 ResultadoComparacion compararIdProvincia(PtrDato ptrDato1, PtrDato ptrDato2) {
     if (getId(*(SProvincia*)ptrDato1) > getId(*(SProvincia*)ptrDato2))
         return MAYOR;
@@ -61,22 +81,30 @@ int main()
     cargarSucursal( listaSuc);
     //    ImprimirLista(listaSuc);
     reordenar(listaSuc);
-    cout<< "RAnking nacional por monto"<<endl;
+    cout<< ""<<endl;
+    cout<< "Ranking nacional por monto"<<endl;
+    cout<< ""<<endl;
     ImprimirLista(listaSuc);
+    cout<< ""<<endl;
     cout<< "Ranking provincial por monto"<<endl;
+    cout<< ""<<endl;
     setCompare(listaSuc,compararMontoProv);
     reordenar(listaSuc);
     ImprimirLista(listaSuc);
-/*
 
-    Lista listaProvincias;
-    crearLista(listaProvincias,compararIdProvincia);
-    cargarProvincias(listaProvincias);
-   // ImprimirListaProvincia(listaProvincias);
+    cout<< ""<<endl;
+    cout<< "Ranking nacional por articulos"<<endl;
+    cout<< ""<<endl;
+    setCompare(listaSuc,compararArticulo);
+    reordenar(listaSuc);
+    ImprimirLista(listaSuc);
+    cout<< ""<<endl;
+    cout<< "Ranking provincial por articulo"<<endl;
+    cout<< ""<<endl;
+    setCompare(listaSuc,compararArticuloProv);
+    reordenar(listaSuc);
+    ImprimirLista(listaSuc);
 
-    Lista listaOrdenProvinciasMonto;
-    crearLista(listaOrdenProvinciasMonto,compararMonto);
-*/
 
    // eliminarListaProvincia(listaProvincias);
     eliminarListaSucursal(listaSuc);
