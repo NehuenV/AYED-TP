@@ -281,5 +281,7 @@ void ImprimirLista(Lista &lista);
 
 void eliminarListaProvincia(Lista &lista);
 void ImprimirListaProvincia(Lista &lista);
+
+void setCompare(Lista &lista,PFComparacion compara);
 #endif
 

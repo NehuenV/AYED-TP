@@ -7,25 +7,31 @@
 using namespace std;
 
 ResultadoComparacion compararMonto(PtrDato ptrDato1, PtrDato ptrDato2) {
-    if (getMonto(*(Sucursal*)ptrDato1) < getMonto(*(Sucursal*)ptrDato2))
+    if (getMonto(*(Sucursal*)ptrDato1) >getMonto(*(Sucursal*)ptrDato2))
         return MAYOR;
-    else if (getMonto(*(Sucursal*)ptrDato1) > getMonto(*(Sucursal*)ptrDato2))
+    else if (getMonto(*(Sucursal*)ptrDato1) < getMonto(*(Sucursal*)ptrDato2))
         return MENOR;
     else
         return IGUAL;
 }
 ResultadoComparacion compararMontoProv(PtrDato ptrDato1, PtrDato ptrDato2) {
-    if (getProvincia(*(Sucursal*)ptrDato1)==getProvincia(*(Sucursal*)ptrDato2) &&getMonto(*(Sucursal*)ptrDato1) > getMonto(*(Sucursal*)ptrDato2))
+    if (getProvincia(*(Sucursal*)ptrDato1)==getProvincia(*(Sucursal*)ptrDato2))
+    {
         return MAYOR;
-    else if (getProvincia(*(Sucursal*)ptrDato1)==getProvincia(*(Sucursal*)ptrDato2) && getMonto(*(Sucursal*)ptrDato1) < getMonto(*(Sucursal*)ptrDato2))
+    }else
+    if (getProvincia(*(Sucursal*)ptrDato1)!=getProvincia(*(Sucursal*)ptrDato2))
+    {
         return MENOR;
-        if(getProvincia(*(Sucursal*)ptrDato1)==getProvincia(*(Sucursal*)ptrDato2) && getMonto(*(Sucursal*)ptrDato1) == getMonto(*(Sucursal*)ptrDato2)){
-            return IGUAL;}
+    }
+    else
+        compararMonto(ptrDato1,ptrDato2);
+
+
 }
 ResultadoComparacion compararIdProvincia(PtrDato ptrDato1, PtrDato ptrDato2) {
-    if (getId(*(SProvincia*)ptrDato1) < getId(*(SProvincia*)ptrDato2))
+    if (getId(*(SProvincia*)ptrDato1) > getId(*(SProvincia*)ptrDato2))
         return MAYOR;
-    else if (getId(*(SProvincia*)ptrDato1) > getId(*(SProvincia*)ptrDato2))
+    else if (getId(*(SProvincia*)ptrDato1) < getId(*(SProvincia*)ptrDato2))
         return MENOR;
     else
         return IGUAL;
@@ -51,12 +57,18 @@ int main()
 {
     cout<< "leyendo archivo"<<endl;
     Lista listaSuc;
-    crearLista(listaSuc,compararMontoProv);
+    crearLista(listaSuc,compararMonto);
     cargarSucursal( listaSuc);
+    //    ImprimirLista(listaSuc);
     reordenar(listaSuc);
+    cout<< "RAnking nacional por monto"<<endl;
+    ImprimirLista(listaSuc);
+    cout<< "Ranking provincial por monto"<<endl;
+    setCompare(listaSuc,compararMontoProv);
     reordenar(listaSuc);
     ImprimirLista(listaSuc);
 /*
+
     Lista listaProvincias;
     crearLista(listaProvincias,compararIdProvincia);
     cargarProvincias(listaProvincias);

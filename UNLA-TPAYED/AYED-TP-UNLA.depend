@@ -51,7 +51,7 @@
 	"Sucursal.h"
 	<stdlib.h>
 
-1600664991 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\entidades\sucursal.cpp
+1600718520 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\entidades\sucursal.cpp
 	<iostream>
 	<sstream>
 	<stdio.h>
@@ -66,16 +66,16 @@
 	<string>
 	"../Listas/Lista.h"
 
-1600662054 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\lista.cpp
+1600718364 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\lista.cpp
 	"Lista.h"
 	<iostream>
 	<iomanip>
 	"../Entidades/Sucursal.h"
 	"../entidades/Provincia.h"
 
-1600661682 c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\lista.h
+1600718307 c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\listas\lista.h
 
-1600713716 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\main.cpp
+1600718587 source:c:\users\nehuen\documents\ayed-tp\ayed-tp\unla-tpayed\main.cpp
 	<iostream>
 	<iomanip>
 	<string>
