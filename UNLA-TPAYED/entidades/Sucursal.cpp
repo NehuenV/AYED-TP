@@ -82,12 +82,14 @@ void cargarSucursal(Lista &lista)
     FILE* fSucursal;
     string lectura="";
     int pos=0;
-    fSucursal = fopen("C:\\Users\\Equipo\\Documents\\AYED-TP\\archivo.txt","r");
+    //fSucursal = fopen("C:\\Users\\Equipo\\Documents\\AYED-TP\\archivo.txt","r");
+    fSucursal = fopen("C:\\Users\\Nehuen\\Desktop\\ejemplo-sucursales.txt","r");
+
     while(!feof(fSucursal))
     {
         //leemos la linea
         leerLineaSucursal(&lectura, fSucursal);
-      //  cout<< lectura<< endl;
+        //cout<< lectura<< endl;
        //se obtiene el largo de la linea
         int largo = lectura.size();
         //encontramos el primer guion
@@ -131,7 +133,7 @@ void cargarSucursal(Lista &lista)
         crearSucursal(*sucursal,idSuc,prov,cant,mont,cm,casa);
        // cout <<toString(*sucursal)<<endl;
         adicionarPrincipio(lista,sucursal);
-
+    lectura="";
     }
     fclose(fSucursal);
 }
@@ -156,10 +158,10 @@ void leerLineaSucursal(string *destino, FILE* fSucursal)
 string toString(Sucursal &sucursal) {
     string dato="NULL\n";
        dato = "IdSuc: "+  std::to_string(getCodSucursal(sucursal)) +
-               " Provincia: " +// getProvincia(sucursal)+
-               " CantArticulo: "+ std::to_string(getCantArticulo(sucursal))+
-               " Monto: "+ std::to_string(getMonto(sucursal))+
-               " Cm2: "+ std::to_string(getCm2(sucursal))+
-                " CasaMatriz: " + std::to_string(getCasaMatriz(sucursal));
+               " - Provincia: " + getProvincia(sucursal)+
+               " - CantArticulo: "+ std::to_string(getCantArticulo(sucursal))+
+               " - Monto: "+ std::to_string(getMonto(sucursal))+
+               " - Cm2: "+ std::to_string(getCm2(sucursal))+
+                " - CasaMatriz: " + std::to_string(getCasaMatriz(sucursal));
     return dato;
 }

@@ -21,7 +21,6 @@ void borrarSucursal(Sucursal *sucursal);
 int getCodSucursal(Sucursal &sucursal);
 void setCodSucursal(Sucursal &sucursal, int codSucursal);
 
-//char
 std::string getProvincia(Sucursal &sucursal);
 void setProvincia(Sucursal &sucursal, std::string provincia);
 

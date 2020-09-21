@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include "../Entidades/Sucursal.h"
+#include "../entidades/Provincia.h"
 /******************************************************************************/
 /* Definición de Tipos de Datos para manejo interno */
 /*--------------------------------------------------*/
@@ -183,6 +184,16 @@ void eliminarListaSucursal(Lista &lista) {
 }
 
 /*----------------------------------------------------------------------------*/
+void eliminarListaProvincia(Lista &lista) {
+
+  /* retira uno a uno los nodos de la lista */
+    while (! listaVacia(lista)){
+        borrarSProvincia((SProvincia*)primero(lista)->ptrDato);
+        eliminarNodo(lista,primero(lista));
+
+    }
+}
+/*----------------------------------------------------------------------------*/
 PtrNodoLista localizarDato(Lista &lista, PtrDato ptrDato) {
 
    bool encontrado = false;
@@ -265,6 +276,20 @@ void ImprimirLista(Lista &lista) {
   PtrNodoLista ptrCursor = primero(lista);
   while ( ptrCursor != fin() ) {
        std::cout<< toString(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+       ptrCursor=ptrCursor->sgte;
+
+  }
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+void ImprimirListaProvincia(Lista &lista) {
+
+
+  PtrNodoLista ptrCursor = primero(lista);
+  while ( ptrCursor != fin() ) {
+       std::cout<< toStringProvincia(*(SProvincia*)ptrCursor->ptrDato)<<std::endl;
        ptrCursor=ptrCursor->sgte;
 
   }
