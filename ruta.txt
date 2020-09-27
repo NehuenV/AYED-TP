@@ -10,7 +10,6 @@ llenar sucursales
 agregar a la lista(lista creada en el main y se pasa como parametro)[lo recibe cargar sucursales(todas) o donde sea que vaya a completar la sucursal]
 
 
-//puto los que no estuvieron en discord el 17/09
 
 
 
@@ -41,5 +40,20 @@ ordenar cada lista por monto
 	en el metodo CompararXMt2 vamos a dividir facturacionxMetroCuadrado y si es mayor va primero en la lista, sino por debajo.
 	La lista estara iniciada en el main 
 
+
+
+
+21/09
+
+falta mover los metodos de ordenamiento a una nueva clase intermedia(Sistema)
+la clase va a tener todo lo que esta en el main y un imprimir lista.
+
+
+desde el main se llamaria a unainstancia de la clase sistemas e invocaremos al metodo rankingNAcionalMonto blablabla.
+
+Sistema: reunion por disc.
+main: Mariano
+ordeniaminto de mt2/facturacion x sucursal y matriz: pablo, miguel
+ 
 
 

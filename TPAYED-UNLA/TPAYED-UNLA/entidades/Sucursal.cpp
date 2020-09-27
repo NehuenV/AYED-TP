@@ -83,7 +83,7 @@ void cargarSucursal(Lista &lista)
     string lectura="";
     int pos=0;
     //fSucursal = fopen("C:\\Users\\Equipo\\Documents\\AYED-TP\\archivo.txt","r");
-    fSucursal = fopen("C:\\Users\\Nehuen\\Documents\\AYED-TP\\AYED-TP\\archivos.txt","r");
+    fSucursal = fopen("archivos.txt","r");
 
     while(!feof(fSucursal))
     {
