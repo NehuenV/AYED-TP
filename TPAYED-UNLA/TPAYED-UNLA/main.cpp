@@ -6,6 +6,21 @@
 #include "Listas/Lista.h"
 using namespace std;
 
+void ResultadoRendimiento(Lista &lista) {
+
+  float resultado=0;
+
+  PtrNodoLista ptrCursor = primero(lista);
+  while ( ptrCursor != fin() ) {
+
+        resultado=getMonto(*(Sucursal*)ptrCursor->ptrDato)/getCm2(*(Sucursal*)ptrCursor->ptrDato);
+        std::cout<<  toString(*(Sucursal*)ptrCursor->ptrDato)<< std::endl << "El rendimiento es: " << resultado  << std::endl;
+        ptrCursor=ptrCursor->sgte;
+
+  }
+
+}
+
 ResultadoComparacion compararArticulo(PtrDato ptrDato1, PtrDato ptrDato2) {
     if (getCantArticulo(*(Sucursal*)ptrDato1) >getCantArticulo(*(Sucursal*)ptrDato2))
         return MAYOR;
@@ -61,13 +76,45 @@ ResultadoComparacion compararIdProvincia(PtrDato ptrDato1, PtrDato ptrDato2) {
 ResultadoComparacion compararMt2Fact(PtrDato ptrDato1, PtrDato ptrDato2) {
     float cos1=getCm2(*(Sucursal*)ptrDato1)/ getMonto(*(Sucursal*)ptrDato1);
     float cos2=getCm2(*(Sucursal*)ptrDato2)/ getMonto(*(Sucursal*)ptrDato2);
-    if (cos1 > cos2)
+
+   if (cos1 > cos2)
         return MAYOR;
     else if (cos1<cos2)
         return MENOR;
     else
         return IGUAL;
 }
+void rufian (Lista &listaSuc, Lista &listaCasMat) {
+    PtrNodoLista ptrCursor = primero(listaSuc);
+    while (ptrCursor != fin()) {
+        if (getCasaMatriz(*(Sucursal*)ptrCursor->ptrDato)==0) {
+            adicionarPrincipio(listaCasMat,(Sucursal*)ptrCursor->ptrDato);
+        }
+        ptrCursor=ptrCursor->sgte;
+    }
+    PtrNodoLista ptrCursorSuc = primero(listaSuc);
+    PtrNodoLista ptrCursorCasMat = primero(listaCasMat);
+    float facturacion=0;
+    float mt2=0;
+    while (ptrCursorCasMat != fin()) {
+         facturacion=getMonto(*(Sucursal*)ptrCursorCasMat->ptrDato);
+         mt2=getCm2(*(Sucursal*)ptrCursorCasMat->ptrDato);
+        while(ptrCursorSuc != fin()) {
+            if (getCodSucursal(*(Sucursal*)ptrCursorCasMat->ptrDato) == getCasaMatriz(*(Sucursal*)ptrCursorSuc->ptrDato)){
+                mt2+=getCm2(*(Sucursal*)ptrCursorSuc->ptrDato);
+                facturacion+=getMonto(*(Sucursal*)ptrCursorSuc->ptrDato);
+            }
+            ptrCursorSuc=ptrCursorSuc->sgte;
+        }
+        ptrCursorSuc = primero(listaSuc);
+        setCm2(*(Sucursal*)ptrCursorCasMat->ptrDato,mt2);
+        setMonto(*(Sucursal*)ptrCursorCasMat->ptrDato,facturacion);
+        ptrCursorCasMat=ptrCursorCasMat->sgte;
+    }
+}
+
+
+
 
 void listasProvincias(Lista &listaSuc, Lista &listaProv, Lista listaOrdenProvinciasMonto)
 {
@@ -90,6 +137,10 @@ int main()
 {
     cout<< "leyendo archivo"<<endl;
     Lista listaSuc;
+
+
+
+
     crearLista(listaSuc,compararMonto);
     cargarSucursal( listaSuc);
     //    ImprimirLista(listaSuc);
@@ -121,9 +172,12 @@ int main()
     cout<< ""<<endl;
     cout<< "Ranking asdasldjalsd mt2"<<endl;
     cout<< ""<<endl;
-    setCompare(listaSuc,compararMt2Fact);
-    reordenar(listaSuc);
-    ImprimirLista(listaSuc);
+    Lista listaFact;
+    crearLista(listaFact,compararMt2Fact);
+    rufian(listaSuc,listaFact);
+    reordenar(listaFact);
+
+    ResultadoRendimiento(listaFact);
 
 
    // eliminarListaProvincia(listaProvincias);
