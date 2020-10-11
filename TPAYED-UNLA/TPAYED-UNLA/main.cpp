@@ -182,6 +182,7 @@ int main()
 
    // eliminarListaProvincia(listaProvincias);
     eliminarListaSucursal(listaSuc);
+    eliminarListaSucursal(listaFact);
 
 
     return 0;
