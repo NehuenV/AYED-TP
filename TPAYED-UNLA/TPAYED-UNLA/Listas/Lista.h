@@ -218,7 +218,7 @@ void eliminarNodoUltimo(Lista &lista);
 
   lista : lista sobre la cual se invoca la primitiva.
 */
-void eliminarListaSucursal(Lista &lista);
+
 
 
 /******************************************************************************/
@@ -277,10 +277,9 @@ void reordenar(Lista &lista);
 */
 int longitud(Lista &lista);
 
-void ImprimirLista(Lista &lista);
 
-void eliminarListaProvincia(Lista &lista);
-void ImprimirListaProvincia(Lista &lista);
+
+
 
 void setCompare(Lista &lista,PFComparacion compara);
 #endif

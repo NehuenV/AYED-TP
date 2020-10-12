@@ -61,7 +61,7 @@
 	<stdlib.h>
 	"../Listas/Lista.h"
 
-1601247051 c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\listas\lista.h
+1602542495 c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\listas\lista.h
 
 1601247051 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\entidades\sucursal.cpp
 	<iostream>
@@ -78,18 +78,30 @@
 	<string>
 	"../Listas/Lista.h"
 
-1601247051 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\listas\listas.cpp
+1602542775 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\listas\listas.cpp
 	"Lista.h"
 	<iostream>
 	<iomanip>
 	"../Entidades/Sucursal.h"
 	"../entidades/Provincia.h"
+	"../entidades/Nucleo.h"
 
-1602455130 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\main.cpp
+1602544275 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\main.cpp
 	<iostream>
 	<iomanip>
 	<string>
 	"entidades/Sucursal.h"
 	"entidades/Provincia.h"
 	"Listas/Lista.h"
+	"entidades/Nucleo.h"
+
+1602544718 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\entidades\nucleo.cpp
+	"../entidades/Nucleo.h"
+	<iostream>
+	<iomanip>
+
+1602543834 c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\entidades\nucleo.h
+	"../entidades/Sucursal.h"
+	"../entidades/Provincia.h"
+	"../Listas/Lista.h"
 
