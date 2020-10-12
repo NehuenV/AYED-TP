@@ -101,7 +101,7 @@ void lstNacionalPorMonto(){
     cargarSucursal( listaSuc);
     reordenar(listaSuc);
     cout <<" \t \t LISTADO NACIONAL DE FACTURACION POR MONTO (ASCENDENTE)"<<endl << endl;
-    ImprimirLista(listaSuc);
+    ImprimirListaNacional(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
 void lstProvincialPorMonto(){
@@ -110,7 +110,7 @@ void lstProvincialPorMonto(){
     cargarSucursal( listaSuc);
     reordenar(listaSuc);
     cout <<" \t \t LISTADO PROVINCIAL DE FACTURACION POR MONTO (ASCENDENTE)"<<endl << endl;
-    ImprimirLista(listaSuc);
+    ImprimirListaProvincial(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
 
@@ -120,7 +120,7 @@ void lstProvincialPorArticulo(){
     cargarSucursal(listaSuc);
     reordenar(listaSuc);
     cout <<" \t \t LISTADO PROVINCIAL DE VENTA POR ARTICULO (ASCENDENTE)"<<endl << endl;
-    ImprimirLista(listaSuc);
+    ImprimirListaProvincial(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
 void lstNacionalPorArticulo(){
@@ -129,7 +129,7 @@ void lstNacionalPorArticulo(){
     cargarSucursal(listaSuc);
     reordenar(listaSuc);
      cout <<" \t \t LISTADO NACIONAL DE VENTA POR ARTICULO (ASCENDENTE)"<<endl << endl;
-    ImprimirLista(listaSuc);
+    ImprimirListaNacional(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
 
@@ -147,7 +147,7 @@ void lstRendimiento(){
 
 }
 
-void ImprimirLista(Lista &lista) {
+void ImprimirListaNacional(Lista &lista) {
 
 
   PtrNodoLista ptrCursor = primero(lista);
@@ -158,6 +158,27 @@ void ImprimirLista(Lista &lista) {
   }
 
 }
+
+void ImprimirListaProvincial(Lista &lista) {
+    PtrNodoLista ptrPrevio = primero(lista);
+    PtrNodoLista ptrCursor = primero(lista);
+    std::cout <<std::endl <<"Provincia: " << getProvincia(*(Sucursal*)ptrPrevio->ptrDato)<<std::endl;
+    while ( ptrCursor != fin() ) {
+
+        if(getProvincia(*(Sucursal*)ptrPrevio->ptrDato)!=getProvincia(*(Sucursal*)ptrCursor->ptrDato))
+       {
+           std::cout <<std::endl <<"Provincia: " << getProvincia(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+
+       }
+        std::cout<< toString(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+
+        ptrPrevio=ptrCursor;
+        ptrCursor=ptrCursor->sgte;
+
+  }
+
+}
+
 
 void eliminarListaSucursal(Lista &lista) {
 

@@ -15,7 +15,9 @@ void lstProvincialPorMonto();
 void lstNacionalPorArticulo();
 void lstProvincialPorArticulo();
 void lstRendimiento();
-void ImprimirLista(Lista &lista);
+void ImprimirListaNacional(Lista &lista);
+void ImprimirListaProvincial(Lista &lista);
+
 void ResultadoRendimiento(Lista &lista);
 void eliminarListaSucursal(Lista &lista);
 void calculoRendimiento (Lista &listaSuc, Lista &listaCasMat);
