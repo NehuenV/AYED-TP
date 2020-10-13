@@ -86,7 +86,7 @@
 	"../entidades/Provincia.h"
 	"../entidades/Nucleo.h"
 
-1602544275 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\main.cpp
+1602547118 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\main.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -95,7 +95,7 @@
 	"Listas/Lista.h"
 	"entidades/Nucleo.h"
 
-1602544718 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\entidades\nucleo.cpp
+1602546686 source:c:\users\nashl\desktop\ayedf\ayed-tp\tpayed-unla\tpayed-unla\entidades\nucleo.cpp
 	"../entidades/Nucleo.h"
 	<iostream>
 	<iomanip>
