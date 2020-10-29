@@ -279,8 +279,5 @@ int longitud(Lista &lista);
 
 
 
-
-
-void setCompare(Lista &lista,PFComparacion compara);
 #endif
 

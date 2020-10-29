@@ -21,6 +21,8 @@ void ResultadoRendimiento(Lista &lista) {
   }
 }
 
+
+
 ResultadoComparacion compararArticulo(PtrDato ptrDato1, PtrDato ptrDato2) {
     if (getCantArticulo(*(Sucursal*)ptrDato1) >getCantArticulo(*(Sucursal*)ptrDato2))
         return MAYOR;
@@ -63,14 +65,8 @@ ResultadoComparacion compararArticuloProv(PtrDato ptrDato1, PtrDato ptrDato2) {
     else
         compararArticulo(ptrDato1,ptrDato2);
 }
-ResultadoComparacion compararIdProvincia(PtrDato ptrDato1, PtrDato ptrDato2) {
-    if (getId(*(SProvincia*)ptrDato1) > getId(*(SProvincia*)ptrDato2))
-        return MAYOR;
-    else if (getId(*(SProvincia*)ptrDato1) < getId(*(SProvincia*)ptrDato2))
-        return MENOR;
-    else
-        return IGUAL;
-}
+
+
 ResultadoComparacion compararMt2Fact(PtrDato ptrDato1, PtrDato ptrDato2) {
     float cos1=getCm2(*(Sucursal*)ptrDato1)/ getMonto(*(Sucursal*)ptrDato1);
     float cos2=getCm2(*(Sucursal*)ptrDato2)/ getMonto(*(Sucursal*)ptrDato2);
@@ -81,26 +77,14 @@ ResultadoComparacion compararMt2Fact(PtrDato ptrDato1, PtrDato ptrDato2) {
     else
         return IGUAL;
 }
-void listasProvincias(Lista &listaSuc, Lista &listaProv, Lista listaOrdenProvinciasMonto){
-    PtrNodoLista ptrCursorP = primero(listaProv);
-    PtrNodoLista ptrCursorS = primero(listaSuc);
-    while ( ptrCursorP != fin() ) {
-        while ( ptrCursorS != fin() ) {
 
-           if(getProvArch(*(SProvincia*)ptrCursorP->ptrDato)==getProvincia(*(Sucursal*)ptrCursorS->ptrDato)){
-                adicionarPrincipio(listaOrdenProvinciasMonto,(Sucursal*)ptrCursorS);
-           }
-            ptrCursorS=ptrCursorS->sgte;
-        }
-    }
-}
 void lstNacionalPorMonto(){
 
     Lista listaSuc;
     crearLista(listaSuc,compararMonto);
     cargarSucursal( listaSuc);
     reordenar(listaSuc);
-    cout <<" \t \t LISTADO NACIONAL DE FACTURACION POR MONTO (ASCENDENTE)"<<endl << endl;
+
     ImprimirListaNacional(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
@@ -109,8 +93,8 @@ void lstProvincialPorMonto(){
     crearLista(listaSuc,compararMontoProv);
     cargarSucursal( listaSuc);
     reordenar(listaSuc);
-    cout <<" \t \t LISTADO PROVINCIAL DE FACTURACION POR MONTO (ASCENDENTE)"<<endl << endl;
-    ImprimirListaProvincial(listaSuc);
+
+    ImprimirListaProvincialMonto(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
 
@@ -119,8 +103,8 @@ void lstProvincialPorArticulo(){
     crearLista(listaSuc,compararArticuloProv);
     cargarSucursal(listaSuc);
     reordenar(listaSuc);
-    cout <<" \t \t LISTADO PROVINCIAL DE VENTA POR ARTICULO (ASCENDENTE)"<<endl << endl;
-    ImprimirListaProvincial(listaSuc);
+
+    ImprimirListaProvincialArticulo(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
 void lstNacionalPorArticulo(){
@@ -128,7 +112,7 @@ void lstNacionalPorArticulo(){
     crearLista(listaSuc,compararArticulo);
     cargarSucursal(listaSuc);
     reordenar(listaSuc);
-     cout <<" \t \t LISTADO NACIONAL DE VENTA POR ARTICULO (ASCENDENTE)"<<endl << endl;
+
     ImprimirListaNacional(listaSuc);
     eliminarListaSucursal(listaSuc);
 }
@@ -141,7 +125,7 @@ void lstRendimiento(){
     crearLista(listaFact,compararMt2Fact);
     calculoRendimiento(listaSuc,listaFact);
     reordenar(listaFact);
-    cout <<" \t \t LISTADO NACIONAL DE RENDIMIENTO (DESCENDENTE)"<<endl << endl;
+
     ResultadoRendimiento(listaFact);
     eliminarListaSucursal(listaFact);
 
@@ -159,23 +143,91 @@ void ImprimirListaNacional(Lista &lista) {
 
 }
 
-void ImprimirListaProvincial(Lista &lista) {
+void ImprimirListaProvincialMonto(Lista &lista) {
     PtrNodoLista ptrPrevio = primero(lista);
     PtrNodoLista ptrCursor = primero(lista);
     std::cout <<std::endl <<"Provincia: " << getProvincia(*(Sucursal*)ptrPrevio->ptrDato)<<std::endl;
+   float resultado = 0;
+   float aux=0;
+
+   int flag = 0;
     while ( ptrCursor != fin() ) {
+
+         resultado+=(getMonto(*(Sucursal*)ptrPrevio->ptrDato));
+
+         if(flag==1) {
+            resultado-=(getMonto(*(Sucursal*)ptrPrevio->ptrDato));
+         }
 
         if(getProvincia(*(Sucursal*)ptrPrevio->ptrDato)!=getProvincia(*(Sucursal*)ptrCursor->ptrDato))
        {
-           std::cout <<std::endl <<"Provincia: " << getProvincia(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
 
+           std::cout <<std::endl <<"Total :  $" << resultado <<std::endl;
+
+
+
+           std::cout <<std::endl <<"Provincia:  " << getProvincia(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+
+
+         resultado = 0;
        }
+
+
+
         std::cout<< toString(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
 
         ptrPrevio=ptrCursor;
+
         ptrCursor=ptrCursor->sgte;
 
+flag++;
   }
+aux=(getMonto(*(Sucursal*)ptrPrevio->ptrDato));
+std::cout <<std::endl <<"Total :  $" << resultado+aux <<std::endl;
+
+}
+
+void ImprimirListaProvincialArticulo(Lista &lista) {
+    PtrNodoLista ptrPrevio = primero(lista);
+    PtrNodoLista ptrCursor = primero(lista);
+    std::cout <<std::endl <<"Provincia: " << getProvincia(*(Sucursal*)ptrPrevio->ptrDato)<<std::endl;
+   float resultado = 0;
+   float aux=0;
+
+   int flag = 0;
+    while ( ptrCursor != fin() ) {
+
+         resultado+=(getCantArticulo(*(Sucursal*)ptrPrevio->ptrDato));
+
+         if(flag==1) {
+            resultado-=(getCantArticulo(*(Sucursal*)ptrPrevio->ptrDato));
+         }
+
+        if(getProvincia(*(Sucursal*)ptrPrevio->ptrDato)!=getProvincia(*(Sucursal*)ptrCursor->ptrDato))
+       {
+
+           std::cout <<std::endl <<"Cantidad de Articulos: " << resultado <<std::endl;
+
+
+
+           std::cout <<std::endl <<"Provincia:  " << getProvincia(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+
+
+         resultado = 0;
+       }
+
+
+
+        std::cout<< toString(*(Sucursal*)ptrCursor->ptrDato)<<std::endl;
+
+        ptrPrevio=ptrCursor;
+
+        ptrCursor=ptrCursor->sgte;
+
+flag++;
+  }
+aux=(getCantArticulo(*(Sucursal*)ptrPrevio->ptrDato));
+std::cout <<std::endl <<"Cantidad de Articulos: " << resultado+aux <<std::endl;
 
 }
 

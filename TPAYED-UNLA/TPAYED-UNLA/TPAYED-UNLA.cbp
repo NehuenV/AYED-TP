@@ -34,8 +34,8 @@
 		</Compiler>
 		<Unit filename="Listas/Lista.h" />
 		<Unit filename="Listas/Listas.cpp" />
-		<Unit filename="entidades/Provincia.cpp" />
-		<Unit filename="entidades/Provincia.h" />
+		<Unit filename="entidades/Nucleo.cpp" />
+		<Unit filename="entidades/Nucleo.h" />
 		<Unit filename="entidades/Sucursal.cpp" />
 		<Unit filename="entidades/Sucursal.h" />
 		<Unit filename="main.cpp" />

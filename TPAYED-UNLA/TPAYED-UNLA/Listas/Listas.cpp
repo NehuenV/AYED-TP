@@ -276,6 +276,4 @@ int longitud(Lista &lista){
 
 /*----------------------------------------------------------------------------*/
 
-void setCompare(Lista &lista,PFComparacion compara){
-    lista.compara= compara;
-}
+

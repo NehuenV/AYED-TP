@@ -46,8 +46,8 @@ system("cls");
     cout << "\n\nIngrese la opcion deseada: "; cin>>opc;
     system("cls");
     switch(opc){
-    case 1: lstNacionalPorMonto(); volver(); break;
-    case 2: lstProvincialPorMonto(); volver(); break;
+    case 1: cout <<" \t \t LISTADO NACIONAL DE FACTURACION POR MONTO (ASCENDENTE)"<<endl << endl; lstNacionalPorMonto(); volver(); break;
+    case 2:  cout <<" \t \t LISTADO PROVINCIAL DE FACTURACION POR MONTO (ASCENDENTE)"<<endl << endl; lstProvincialPorMonto(); volver(); break;
     case 3: consulta(); break;
     default : facturacion();
     }
@@ -65,8 +65,8 @@ system("cls");
     cout << "\n\nIngrese la opcion deseada: "; cin>>opc;
     system("cls");
     switch(opc){
-    case 1: lstNacionalPorArticulo(); volver(); break;
-    case 2: lstProvincialPorArticulo(); volver(); break;
+    case 1: cout <<" \t \t LISTADO NACIONAL DE VENTA POR ARTICULO (ASCENDENTE)"<<endl << endl; lstNacionalPorArticulo(); volver(); break;
+    case 2: cout <<" \t \t LISTADO PROVINCIAL DE VENTA POR ARTICULO (ASCENDENTE)"<<endl << endl; lstProvincialPorArticulo(); volver(); break;
     case 3: consulta(); break;
     default : ventas();
     }
@@ -74,7 +74,7 @@ system("cls");
     }
 void rendimiento(){
 system("cls");
-lstRendimiento();
+cout <<" \t \t LISTADO NACIONAL DE RENDIMIENTO (DESCENDENTE)"<<endl << endl; lstRendimiento();
 }
 void volver(){
 cout << "\n Ingrese 0 para volver o cualquier numero para salir: "; cin>>opc;
